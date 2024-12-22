@@ -1,12 +1,14 @@
 import requests
 import pandas as pd
+from textblob import TextBlob  # Sentiment analysis library
+import matplotlib.pyplot as plt
 
 # Constants
 API_KEY = "75eadfae4ea8427888c43b4e89653a2b"  # Replace with your API key
 BASE_URL = "https://newsapi.org/v2/everything"
 
 # Function to fetch news
-def fetch_news(query="supply chain", language="en", page_size=10):
+def fetch_news(query="supply chain", language="en", page_size=100):
     params = {
         "q": query,
         "language": language,
@@ -21,6 +23,18 @@ def fetch_news(query="supply chain", language="en", page_size=10):
         print(f"Error: {response.status_code}")
         return []
 
+# Function to perform sentiment analysis
+def analyze_sentiment(text):
+    analysis = TextBlob(text)
+    polarity = analysis.sentiment.polarity
+    # Classify sentiment
+    if polarity > 0:
+        return "Positive"
+    elif polarity < 0:
+        return "Negative"
+    else:
+        return "Neutral"
+
 # Main function
 if __name__ == "__main__":
     # Fetch news articles
@@ -32,7 +46,7 @@ if __name__ == "__main__":
         news_data = [
             {
                 "Title": article["title"],
-                "Description": article["description"],
+                "Description": article["description"] or "",  # Ensure no null values
                 "Source": article["source"]["name"],
                 "URL": article["url"],
             }
@@ -40,23 +54,29 @@ if __name__ == "__main__":
         ]
         news_df = pd.DataFrame(news_data)
 
-        # Save to CSV
-        news_df.to_csv("supply_chain_news.csv", index=True)
+        # Perform sentiment analysis
+        print("Performing sentiment analysis...")
+        news_df["Sentiment"] = news_df["Description"].apply(analyze_sentiment)
 
-        # # Print Titles and Descriptions Separately
-        # print("Collected News Articles:\n")
-        # for idx, (title, description) in enumerate(zip(news_df["Title"], news_df["Description"]), start=1):
-        #     print(f"Title {idx}: {title}")
-        #     print(f"Description {idx}: {description}\n")
+        # Save results to CSV
+        news_df.to_csv("supply_chain_news_with_sentiment.csv", index=False)
 
-        # Print each row in the requested format (Row {idx + 1}: Title, Description, Source, URL)
-        print("\nDetailed Article Information:")
-        for idx, row in news_df.iterrows():
-            print(f"Row {idx + 1}:")
-            print(f"Title: {row['Title']}")
-            print(f"Description: {row['Description']}")
-            print(f"Source: {row['Source']}")
-            print(f"URL: {row['URL']}")
-            print("\n")
+        # Display sentiment distribution
+        print("\nSentiment Distribution:")
+        print(news_df["Sentiment"].value_counts())
+
+        # Plot sentiment distribution
+        plt.figure(figsize=(8, 6))
+        news_df["Sentiment"].value_counts().plot(kind="bar", color="skyblue")
+        plt.title("Sentiment Analysis of Supply Chain News")
+        plt.xlabel("Sentiment")
+        plt.ylabel("Number of Articles")
+        plt.show()
+
+        # Aggregate Risk Factor
+        print("\nAggregating Risk Factor...")
+        risk_factor = news_df["Sentiment"].value_counts(normalize=True).get("Negative", 0) * 100
+        print(f"Calculated Risk Factor from Negative Sentiment: {risk_factor:.2f}%")
+
     else:
         print("No articles found.")
