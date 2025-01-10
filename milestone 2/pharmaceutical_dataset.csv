@@ -1,0 +1,101 @@
+Drug_Name,Region,Product_ID,Supplier_ID,Demand,Supply,Lead_Time,Transportation_Cost
+Atorvastatin,North America,P018,S001,494,42,13,63.4
+Ibuprofen,South America,P014,S008,329,355,12,88.62
+Ibuprofen,North America,P023,S008,200,30,2,50.92
+Atorvastatin,Africa,P017,S016,266,211,4,16.2
+Aspirin,Africa,P007,S018,454,66,10,41.56
+Metformin,North America,P008,S002,307,163,4,22.24
+Aspirin,Africa,P018,S020,71,172,12,73.08
+Clopidogrel,Europe,P029,S003,280,77,13,79.35
+Metformin,South America,P011,S006,140,104,6,73.76
+Amoxicillin,North America,P011,S005,312,92,13,15.39
+Paracetamol,Asia,P004,S008,490,366,5,64.43
+Ibuprofen,Australia,P009,S020,322,22,7,42.9
+Amoxicillin,South America,P019,S004,285,216,6,32.67
+Atorvastatin,South America,P028,S012,150,211,8,25.22
+Losartan,South America,P014,S014,470,103,12,12.2
+Metformin,Australia,P028,S014,490,79,14,35.8
+Atorvastatin,Europe,P028,S010,97,347,9,76.56
+Metformin,Africa,P004,S018,187,84,10,73.56
+Metformin,South America,P006,S004,123,369,6,88.07
+Ibuprofen,South America,P005,S018,101,36,10,64.77
+Metformin,Europe,P006,S004,53,277,11,63.61
+Losartan,North America,P019,S004,394,129,14,71.21
+Amoxicillin,Australia,P001,S010,297,102,10,34.17
+Losartan,Europe,P015,S003,243,155,15,43.45
+Losartan,Asia,P009,S014,246,20,7,86.32
+Aspirin,North America,P021,S015,109,265,12,75.15
+Omeprazole,South America,P012,S019,361,118,2,39.78
+Aspirin,Australia,P017,S018,382,114,9,64.53
+Paracetamol,Europe,P024,S001,182,316,8,74.88
+Clopidogrel,Europe,P002,S005,56,157,7,24.44
+Ibuprofen,Europe,P020,S012,88,230,8,91.1
+Metformin,North America,P002,S020,474,60,7,20.21
+Losartan,Europe,P013,S020,239,68,9,25.3
+Aspirin,North America,P008,S005,139,208,11,24.2
+Clopidogrel,Australia,P009,S002,297,131,11,43.14
+Ibuprofen,North America,P012,S018,143,79,9,98.9
+Atorvastatin,Africa,P019,S014,362,257,9,95.76
+Aspirin,Europe,P010,S010,373,396,13,90.6
+Losartan,Europe,P009,S019,452,391,10,86.89
+Losartan,South America,P018,S010,139,263,15,37.47
+Clopidogrel,Asia,P013,S002,327,192,11,27.97
+Ibuprofen,South America,P006,S005,183,370,10,88.82
+Aspirin,South America,P028,S012,87,207,13,52.16
+Atorvastatin,Africa,P013,S009,314,352,4,41.94
+Omeprazole,Asia,P012,S012,245,224,7,35.71
+Amoxicillin,North America,P019,S011,259,132,11,38.38
+Omeprazole,Africa,P025,S002,234,179,12,11.38
+Atorvastatin,Australia,P022,S005,60,125,2,62.78
+Amoxicillin,Europe,P024,S019,465,180,3,99.25
+Clopidogrel,Australia,P029,S006,152,217,12,12.15
+Metformin,Asia,P001,S004,499,238,3,38.51
+Salbutamol,North America,P013,S005,98,129,13,11.41
+Metformin,Australia,P019,S004,200,280,9,47.48
+Atorvastatin,Australia,P008,S020,207,175,14,62.5
+Omeprazole,Africa,P015,S010,155,56,4,56.26
+Metformin,North America,P016,S016,150,244,2,86.29
+Aspirin,Australia,P028,S011,430,343,7,71.91
+Atorvastatin,North America,P008,S009,449,324,12,20.18
+Losartan,North America,P019,S011,178,119,9,47.41
+Losartan,South America,P003,S004,488,397,7,79.1
+Atorvastatin,Australia,P009,S009,389,59,2,40.01
+Clopidogrel,Australia,P016,S009,186,74,9,31.1
+Omeprazole,Europe,P014,S005,104,143,10,56.49
+Paracetamol,Europe,P030,S013,289,220,6,16.44
+Amoxicillin,Australia,P005,S010,154,65,6,34.21
+Losartan,Asia,P020,S015,122,168,6,77.18
+Atorvastatin,Asia,P010,S018,482,58,3,76.96
+Atorvastatin,Asia,P007,S016,307,75,8,69.07
+Salbutamol,Australia,P026,S004,69,359,3,12.12
+Amoxicillin,Australia,P028,S006,116,107,10,58.15
+Paracetamol,Europe,P020,S008,97,200,6,79.28
+Metformin,Europe,P018,S014,298,234,6,39.28
+Omeprazole,South America,P001,S020,151,86,6,73.37
+Aspirin,Europe,P019,S012,161,82,4,78.94
+Omeprazole,Asia,P008,S009,211,360,11,70.88
+Atorvastatin,Australia,P006,S001,200,126,10,27.0
+Aspirin,South America,P013,S015,481,248,14,73.95
+Metformin,Australia,P020,S013,319,234,12,92.11
+Ibuprofen,South America,P024,S003,145,142,7,19.92
+Ibuprofen,North America,P026,S009,321,333,12,31.54
+Losartan,Africa,P015,S014,70,257,3,69.9
+Amoxicillin,South America,P017,S017,103,93,12,14.24
+Paracetamol,Europe,P026,S001,232,384,3,59.94
+Metformin,Asia,P025,S002,87,154,6,38.38
+Losartan,Asia,P027,S011,72,54,1,69.27
+Omeprazole,Africa,P030,S011,141,352,4,39.47
+Atorvastatin,South America,P012,S009,166,257,14,16.88
+Paracetamol,Asia,P015,S008,179,91,9,64.5
+Omeprazole,Africa,P001,S013,219,68,7,94.43
+Ibuprofen,Africa,P025,S009,59,338,2,52.16
+Metformin,Europe,P022,S009,207,371,7,61.69
+Metformin,Australia,P019,S018,466,56,11,57.86
+Paracetamol,Europe,P004,S001,255,342,2,67.37
+Amoxicillin,Africa,P023,S003,115,144,6,76.83
+Atorvastatin,Africa,P020,S017,449,234,4,19.98
+Amoxicillin,Europe,P007,S017,214,100,15,19.46
+Omeprazole,Africa,P007,S005,207,389,5,40.75
+Metformin,North America,P029,S004,264,118,7,10.02
+Salbutamol,Asia,P008,S014,444,201,3,39.03
+Omeprazole,Europe,P011,S010,173,78,9,94.38
