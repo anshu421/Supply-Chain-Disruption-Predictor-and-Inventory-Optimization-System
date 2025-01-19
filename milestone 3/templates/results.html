@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Results</title>
+</head>
+<body>
+    <h1>Updated Inventory Predictions with Utilization</h1>
+    <p>The following results were generated from the updated prediction model:</p>
+
+    <!-- Display results in a table -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Drug Name</th>
+                <th>Region</th>
+                <th>Supplier ID</th>
+                <th>Demand</th>
+                <th>Supply</th>
+                <th>Lead Time</th>
+                <th>Transportation Cost</th>
+                <th>Product Stock</th>
+                <th>Cost Price</th>
+                <th>Selling Price</th>
+                <th>News Article</th>
+                <th>Demand-Supply Gap</th>
+                <th>Risk Level</th>
+                <th>Predicted Risk Level</th>
+                <th>Sentiment</th>
+                <th>Warehouse Capacity</th>
+                <th>Predicted Inventory</th>
+                <th>Utilization Percentage</th>
+                <th>Last Updated</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for index, row in results.iterrows() %}
+            <tr>
+                <td>{{ row['Product_ID'] }}</td>
+                <td>{{ row['Drug_Name'] }}</td>
+                <td>{{ row['Region'] }}</td>
+                <td>{{ row['Supplier_ID'] }}</td>
+                <td>{{ row['Demand'] }}</td>
+                <td>{{ row['Supply'] }}</td>
+                <td>{{ row['Lead_Time'] }}</td>
+                <td>{{ row['Transportation_Cost'] }}</td>
+                <td>{{ row['Product_Stock'] }}</td>
+                <td>{{ row['Cost_Price'] }}</td>
+                <td>{{ row['Selling_Price'] }}</td>
+                <td>{{ row['News_Article'] }}</td>
+                <td>{{ row['Demand_Supply_Gap'] }}</td>
+                <td>{{ row['Risk_Level'] }}</td>
+                <td>{{ row['Predicted_Risk_Level'] }}</td>
+                <td>{{ row['Sentiment'] }}</td>
+                <td>{{ row['Warehouse_Capacity'] }}</td>
+                <td>{{ row['Predicted_Inventory'] }}</td>
+                <td>{{ row['Utilization_Percentage'] }}</td>
+                <td>{{ row['Last_Updated'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <a href="{{ url_for('index') }}">
+        <button>Back to Dashboard</button>
+    </a>
+</body>
+</html>
