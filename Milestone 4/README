@@ -1,0 +1,146 @@
+Inventory Management and Risk Prediction Application
+--Overview
+This application helps manage pharmaceutical inventory, predict risks based on supply-demand data, analyze sentiments from news articles related to drugs, and calculate inventory levels based on warehouse capacity. It provides a web interface for adding products, viewing inventory, running predictions to identify potential risks and utilization, visualizing key data, and sending email alerts.
+Features
+      •	Add and view product inventory details through a web interface.
+      •	Predict supply chain disruptions and classify risk levels.
+      •	Perform sentiment analysis on news articles related to drugs.
+      •	Predict inventory levels based on warehouse capacity and risk classification.
+      •	Calculate warehouse utilization percentage.
+      •	Visualize demand-supply gap and risk level distribution through charts.
+      •	Send email alerts for high-risk predictions and disruptions.
+      •	Export data to CSV for further analysis.
+________________________________________
+File Descriptions
+
+1.	app.py
+This is the main Flask application that serves the web interface. It includes:
+      o	Routes to display the homepage, product list, and prediction results.
+      o	Integration with the database and prediction logic.
+      o	Provides an endpoint to run the prediction and display results.
+      o	Includes functionality to display visualizations (demand-supply gap and risk level distribution).
+
+2.	upload.py
+Used to upload bulk product data into the database from a CSV file.
+      o	Parses the CSV file and stores the data in inventory.db.
+      o	Useful for initializing the database with large datasets.
+
+3.	predict_disruption.py
+Handles the prediction logic:
+      o	Connects to the database to fetch inventory data.
+      o	Calculates demand-supply gap, risk levels, and performs sentiment analysis on news articles.
+      o	Predicts inventory levels based on warehouse capacity and risk classification:
+	High Risk: Allocates 80% of warehouse capacity as additional inventory.
+	Medium Risk: Allocates 50% of warehouse capacity as additional inventory.
+	Low Risk: Reduces inventory by 20% of warehouse capacity.
+      o	Calculates warehouse utilization percentage.
+      o	Saves the results, including inventory predictions, risk levels, and utilization, to predicted_results.csv.
+
+--Visualizations
+      o	Demand-Supply Gap Distribution: A plot showing the gap between demand and supply for each product.
+      o	Risk Level Distribution: A plot showing the distribution of risk levels (High, Medium, Low) across products.
+      o	These visualizations are rendered as images and displayed in the web interface.
+
+--Email Alerts
+Sends email alerts when high-risk predictions or disruptions are detected:
+      o	It is configured to send emails using Gmail or another email provider (with App-Specific Passwords).
+      o	Alerts are triggered based on the risk level classification from the predictions.
+
+4.	database.py
+Manages the database operations:
+      o	Contains functions to create the database tables (inventory.db) if they don’t exist.
+      o	Allows inserting products and fetching product data.
+      o	Centralizes database-related tasks for easy management.
+
+5.	database.db
+This is the database file used for user and authentication-related data (if applicable). Not directly used for inventory in this application.
+  
+6.	inventory.db
+The primary database file storing inventory-related data. It contains details such as:
+      o	Drug Name, Region, Supplier ID, Demand, Supply, Lead Time, and other essential information.
+      o	Serves as the data source for predictions and web interface operations.
+                                                                         
+7.	export_to_csv.py
+Provides functionality to export database data into a CSV file:
+      o	Useful for generating reports or backing up inventory data.
+      o	Can be run independently to create a snapshot of the database.                                                                                                                                      
+________________________________________
+How to Run the Application
+                                                                         
+1. Setup
+      •	Ensure you have Python 3.7+ installed on your system.
+      •	Install the required dependencies:
+bash
+pip install -r requirements.txt
+                                                                         
+2. Database Initialization
+      •	Ensure inventory.db exists. If not, it will be created automatically when you run the application.
+      •	To upload bulk data, use upload.py:
+bash
+python upload.py
+                                                                         
+3. Run the Application
+      •	Start the Flask server:
+bash
+python app.py
+      •	Open your browser and go to http://127.0.0.1:5000 to access the application.
+                                                                         
+4. Using the Web Interface
+      •	Add Products: Use the form on the "Add Product" page to add inventory details.
+      •	View Products: Navigate to the "Products" page to see the inventory list.
+      •	Predict Disruptions: Click the "Run Prediction" button to analyze risks, predict inventory levels, and calculate warehouse utilization. The results will be saved to predicted_results.csv and displayed on the "Results" page.
+      •	Visualize Data: On the "Visualizations" page, you can see charts displaying:
+o	Demand-Supply Gap: A graphical representation of the demand-supply gap for each product.
+o	Risk Level Distribution: A graphical representation of risk levels across products.
+                                                                         
+5. Export Data
+      •	To export inventory data from inventory.db to a CSV file, run:
+bash
+python export_to_csv.py
+________________________________________
+Sample Workflow
+                                                                         
+1.	Upload Data: Use upload.py to populate inventory.db.
+2.	Run App: Start the Flask app with app.py.
+3.	Add Products: Add or edit inventory data using the web interface.
+4.	Predict Risks and Inventory Levels:
+      o	Analyze risks by clicking "Run Prediction."
+      o	Predictions will include:
+      	Risk Levels (High, Medium, Low).
+      	Predicted Inventory Levels based on warehouse capacity.
+      	Warehouse Utilization Percentage.
+      o	Results are displayed on the "Results" page and saved to predicted_results.csv.
+                                                                         
+5.	Visualize Data: View the visualizations for demand-supply gap and risk level distribution.
+                                                                         
+6.	Export Data: Generate a CSV report using export_to_csv.py.
+________________________________________
+Email Setup for Alerts
+                                                                         
+To send emails from your application, you need to configure the email system properly. If you are using a real email account (like Gmail), follow the steps below to set it up.
+1. For Gmail (Recommended: Use App-Specific Password)
+                                                                         
+If you are using Gmail and have Two-Factor Authentication (2FA) enabled, it's recommended to use an App-Specific Password instead of your main Gmail password for security reasons.
+Steps to Create an App-Specific Password:
+1.	Go to your Google Account:
+      o	Open your Google Account.
+2.	Enable 2-Step Verification (if you haven't already):
+      o	In the "Security" section, make sure 2-Step Verification is turned on.
+3.	Create an App-Specific Password:
+      o	Once 2FA is enabled, under the "Security" section, look for App passwords.
+      o	Click on App passwords and log in with your account credentials.
+      o	In the "Select app" dropdown, choose Other (Custom name) and name it (e.g., Flask Email).
+      o	Google will generate an App-Specific Password for you (a 16-character random password). This is what you’ll use instead of your Gmail password in the code.
+4.	Use the App-Specific Password in the Code:
+      o	In the email_alerts.py file, replace the placeholder sender_password = "your_email_password" with the generated App-Specific Password.
+      o	Example:
+python
+sender_password = "16-character-app-password-generated-by-google"
+5.	Update Your Email Settings:
+      o	Make sure to provide the correct sender email (e.g., your_email@gmail.com) and receiver email in the application.
+________________________________________
+2. For Other Email Providers
+If you're using an email provider other than Gmail, follow the provider's instructions for generating app-specific or "less secure" app passwords (if needed). Most email services provide a way to generate such passwords, and you should use them instead of your main email password for security.
+
+License
+This project is open-source and available under the MIT License.
