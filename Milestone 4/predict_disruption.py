@@ -23,8 +23,8 @@ from email.mime.multipart import MIMEMultipart
 nltk.download('vader_lexicon')
 
 def send_email(subject, body, recipient_email):
-    sender_email = "footballdhoni@gmail.com"
-    sender_password = "crro cqkm eaqb vucp"  # It's better to use app-specific passwords for security
+    sender_email = "example@gmail.com"
+    sender_password = "password"  # It's better to use app-specific passwords for security
 
     msg = MIMEMultipart()
     msg['From'] = sender_email
