@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            padding: 20px;
+            background-color: #0044cc;
+            color: white;
+            margin: 0;
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+        }
+
+        .form-group textarea {
+            height: 100px;
+        }
+
+        button {
+            background-color: #0044cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0033aa;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .nav-buttons button {
+            width: 180px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Product Management System</h1>
+
+    <div class="container">
+        <h2>Add Product</h2>
+        <form method="POST" action="{{ url_for('add_product') }}">
+            <div class="form-group">
+                <input type="text" name="Drug_Name" placeholder="Drug Name" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="Region" placeholder="Region" required>
+            </div>
+            <div class="form-group">
+                <input type="number" name="Supplier_ID" placeholder="Supplier ID" required>
+            </div>
+            <div class="form-group">
+                <input type="number" name="Demand" placeholder="Demand" required>
+            </div>
+            <div class="form-group">
+                <input type="number" name="Supply" placeholder="Supply" required>
+            </div>
+            <div class="form-group">
+                <input type="number" name="Lead_Time" placeholder="Lead Time" required>
+            </div>
+            <div class="form-group">
+                <input type="number" step="0.01" name="Transportation_Cost" placeholder="Transportation Cost" required>
+            </div>
+            <div class="form-group">
+                <input type="number" name="Product_Stock" placeholder="Stock" required>
+            </div>
+            <div class="form-group">
+                <input type="number" step="0.01" name="Cost_Price" placeholder="Cost Price" required>
+            </div>
+            <div class="form-group">
+                <input type="number" step="0.01" name="Selling_Price" placeholder="Selling Price" required>
+            </div>
+            <div class="form-group">
+                <textarea name="News_Article" placeholder="News Article"></textarea>
+            </div>
+            <button type="submit">Add Product</button>
+        </form>
+    </div>
+
+    <div class="container nav-buttons">
+        <a href="{{ url_for('view_products') }}"><button>View Products</button></a>
+        <a href="{{ url_for('predict_disruptions') }}"><button>Run Prediction Model</button></a>
+        <a href="{{ url_for('visualizations') }}"><button>Visualize Supply Chain</button></a>
+    </div>
+
+</body>
+</html>

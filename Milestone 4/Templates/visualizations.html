@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supply Chain Visualizations</title>
+</head>
+<body>
+    <h1>Supply Chain Visualizations</h1>
+    
+    <!-- Visualizations Section -->
+    <h2>Demand-Supply Gap Distribution</h2>
+    <img src="data:image/png;base64,{{ demand_supply_gap_plot }}" alt="Demand-Supply Gap Plot">
+
+    <h2>Risk Level Distribution</h2>
+    <img src="data:image/png;base64,{{ risk_level_plot }}" alt="Risk Level Plot">
+    
+
+    <br><br>
+    <a href="{{ url_for('index') }}">
+        <button>Back to Dashboard</button>
+    </a>
+</body>
+</html>
