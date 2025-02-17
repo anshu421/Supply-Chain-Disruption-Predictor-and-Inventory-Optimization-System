@@ -10,7 +10,7 @@ import nltk
 nltk.download('vader_lexicon')
 
 # Load the dataset
-data = pd.read_csv('D:/program/Infosys/pharmaceutical_dataset.csv')
+data = pd.read_csv('pharmaceutical_dataset_2.csv')
 
 # Feature Engineering: Demand-Supply Gap
 data['Demand_Supply_Gap'] = data['Demand'] - data['Supply']
